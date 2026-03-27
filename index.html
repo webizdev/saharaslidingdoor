@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sahara Sliding Door Mobil - Spesialis Pintu Geser & Sunroof</title>
+  <meta name="description" content="Bengkel spesialis service sliding door mobil, sunroof, dan power backdoor bergaransi di Jakarta. Melayani home service ke lokasi Anda.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* VARIABLES & RESET */
+    :root {
+      --primary: #2b496b;
+      --primary-dark: #1b324d;
+      --secondary: #25D366;
+      --bg-light: #f5f8fc;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --white: #ffffff;
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { color: var(--text-main); fill: var(--text-main); background: var(--bg-light); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* UTILITIES */
+    .section-padding { padding: 80px 0; }
+    .text-center { text-align: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; padding: 12px 24px; border-radius: 8px; cursor: pointer; border: none; transition: 0.3s; }
+    .btn-white { background: var(--white); color: var(--primary); }
+    .btn-white:hover { background: #f1f5f9; }
+    .btn-primary { background: var(--primary); color: var(--white); }
+    .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 5px 15px rgba(27, 50, 77, 0.3); }
+    .btn-green { background: var(--secondary); color: var(--white); padding: 12px 28px; border-radius: 30px;}
+    .btn-green:hover { background: #1eb956; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+
+    /* ==================================== */
+    /* 1. HEADER (STICKY)                   */
+    /* ==================================== */
+    .header { position: fixed; top: 0; left: 0; width: 100%; background: var(--primary); color: var(--white); z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+    .header .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: 1px; color: var(--white); text-transform: uppercase; }
+    .logo img { height: 40px; }
+    .nav { display: flex; gap: 30px; align-items: center; margin-left: auto; margin-right: 30px; }
+    .nav a { color: var(--white); font-weight: 600; font-size: 17px; transition: 0.2s; }
+    .nav a:hover { opacity: 0.8; }
+    .mobile-menu-btn { display: none; font-size: 24px; background: none; color: var(--white); border: none; cursor: pointer; }
+
+    @media(max-width: 900px) {
+      .nav, .header-cta { display: none; }
+      .mobile-menu-btn { display: block; }
+    }
+    @media(max-width: 480px) {
+      .logo { font-size: 14px; letter-spacing: 0.5px; }
+      .header .container { padding: 0 15px; }
+    }
+
+    /* ==================================== */
+    /* 2. HERO SECTION                      */
+    /* ==================================== */
+    .hero { position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #111; padding-top: 80px; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45; }
+    .hero-content { position: relative; z-index: 2; width: 100%; max-width: 800px; margin: 0 20px; text-align: center; }
+    .hero-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--glass-border); padding: 50px 40px; border-radius: 20px; color: var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .hero-glass h1 { font-size: 38px; line-height: 1.2; margin-bottom: 16px; font-weight: 700; }
+    .hero-glass p { font-size: 16px; margin-bottom: 30px; opacity: 0.9; }
+    .hero-buttons { display: flex; gap: 15px; justify-content: center; }
+
+    @media(max-width: 768px) {
+      .hero-glass { padding: 40px 20px; }
+      .hero-glass h1 { font-size: 28px; }
+      .hero-buttons { flex-direction: column; }
+    }
+
+    /* ==================================== */
+    /* 3. TRUST BAR                         */
+    /* ==================================== */
+    .trust-bar { background: var(--primary-dark); padding: 15px 0; color: var(--white); overflow: hidden; white-space: nowrap; }
+    .trust-track { display: inline-flex; gap: 40px; padding-right: 40px; animation: marquee 20s linear infinite; width: max-content; }
+    .trust-track:hover { animation-play-state: paused; }
+    .badge-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .badge-item i { color: #5bc0de; font-size: 14px; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* ==================================== */
+    /* 4. TENTANG & MERK MOBIL              */
+    /* ==================================== */
+    .about-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: -30px; position: relative; z-index: 5; }
+    .about-card, .merk-card { background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #edf2f7; }
+    .about-card h2, .merk-card h2 { font-size: 24px; color: var(--primary); margin-bottom: 20px; line-height: 1.3; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
+    .feat { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; }
+    .feat i { width: 30px; height: 30px; border-radius: 50%; background: #ebf4ff; color: var(--primary); display: flex; align-items: center; justify-content: center; }
+    
+    .merk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 25px; }
+    .merk-item { text-align: center; padding: 15px 10px; border: 1px solid #edf2f7; border-radius: 12px; transition: 0.3s; }
+    .merk-item:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-color: var(--primary); }
+    .merk-item img { height: 40px; margin: 0 auto 10px; object-fit: contain; }
+    .merk-item span { font-size: 11px; font-weight: 600; color: var(--text-main); }
+    
+    .counters { display: flex; gap: 15px; }
+    .counter-box { flex: 1; text-align: center; border: 1px solid #edf2f7; padding: 15px; border-radius: 12px; background: #fafcff; }
+    .counter-val { font-size: 28px; font-weight: 700; color: var(--primary); }
+    .counter-label { font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+    @media(max-width: 900px) {
+      .about-wrapper { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 500px) {
+      .merk-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-card, .merk-card { padding: 25px 20px; }
+    }
+
+    /* ==================================== */
+    /* 5. BOOKING FORM AREA                 */
+    /* ==================================== */
+    .booking-section { background: var(--primary); color: var(--white); border-radius: 20px; margin: 60px 20px; overflow: hidden; }
+    .booking-wrap { display: grid; grid-template-columns: 1fr 1.2fr; }
+    .booking-left { padding: 50px 40px; }
+    .booking-left h2 { font-size: 32px; line-height: 1.2; margin-bottom: 15px; }
+    .booking-left p { opacity: 0.8; margin-bottom: 30px; font-size: 15px; }
+    .b-services { display: flex; gap: 15px; }
+    .b-service-card { background: rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; text-align: center; flex: 1; border: 1px solid rgba(255,255,255,0.1); }
+    .b-service-card img { border-radius: 6px; margin-bottom: 8px; width: 100%; aspect-ratio: 4/3; object-fit: cover;}
+    .b-service-card span { font-size: 13px; font-weight: 600; }
+    
+    .booking-form-box { background: var(--white); color: var(--text-main); padding: 50px 40px; border-radius: 20px 0 0 20px; }
+    .booking-form-box h3 { font-size: 24px; color: var(--primary); margin-bottom: 20px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); }
+    
+    @media(max-width: 900px) {
+      .booking-wrap { grid-template-columns: 1fr; }
+      .booking-form-box { border-radius: 30px 30px 0 0; }
+      .booking-section { margin: 60px 0; border-radius: 0; }
+    }
+
+    /* ==================================== */
+    /* 6. BRAND (TEXT + LOGO)               */
+    /* ==================================== */
+    .brand-section { padding: 60px 0; text-align: center; background: #fff; }
+    .brand-section h2 { font-size: 28px; color: var(--primary); margin-bottom: 15px; }
+    .brand-section p { max-width: 700px; margin: 0 auto 40px auto; color: var(--text-muted); }
+    .brand-icons { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; }
+    .brand-icons img { max-width: 130px !important; height: 65px !important; object-fit: contain !important; transition: 0.3s; display: block; }
+    .brand-icons img:hover { transform: scale(1.1); }
+
+    /* ==================================== */
+    /* 7. TESTIMONIALS                      */
+    /* ==================================== */
+    .testi-section { background: var(--bg-light); padding: 80px 0; }
+    .testi-title { text-align: center; margin-bottom: 40px; }
+    .testi-title h2 { font-size: 32px; color: var(--primary); }
+    .testi-title p { color: var(--text-muted); }
+    .testi-wrap { display: flex; align-items: stretch; gap: 30px; max-width: 900px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .google-badge { text-align: center; border-right: 1px solid #edf2f7; padding-right: 30px; align-self: center;}
+    .google-badge img { margin: 0 auto 10px; width: 80px;}
+    .google-badge h4 { font-size: 20px; font-weight: 700;}
+    .google-badge p { font-size: 14px; font-weight: 500;}
+    
+    .testi-cards { display: flex; gap: 20px; overflow-x: auto; flex: 1; scrollbar-width: none; padding-bottom: 10px; }
+    .t-card { min-width: 250px; border: 1px solid #edf2f7; border-radius: 12px; padding: 20px; flex: 1; }
+    .t-head { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .t-head .avatar { width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+    .t-head h5 { font-size: 15px; }
+    .t-head span { font-size: 11px; color: #999; }
+    .t-stars i { color: #fbbc05; font-size: 12px; }
+    .t-text { font-size: 13px; line-height: 1.5; color: var(--text-main); margin-top: 10px; }
+    
+    @media(max-width: 768px) {
+      .testi-wrap { flex-direction: column; }
+      .google-badge { border-right: none; border-bottom: 1px solid #edf2f7; padding-right: 0; padding-bottom: 20px; }
+    }
+
+    /* ==================================== */
+    /* 8. TABS SERVICE                      */
+    /* ==================================== */
+    .tabs-section { padding: 80px 0; background: var(--white); }
+    .tabs-header { text-align: center; margin-bottom: 40px; }
+    .tabs-header h2 { font-size: 28px; color: var(--primary); margin-bottom: 10px; }
+    
+    .tabs-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
+    .tab-btn { background: #f1f5f9; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 600; cursor: pointer; color: var(--text-muted); transition: 0.3s; }
+    .tab-btn.active { background: var(--primary); color: var(--white); }
+    
+    .tab-content { max-width: 800px; margin: 0 auto; background: #fafcff; padding: 40px; border-radius: 20px; border: 1px solid #edf2f7; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeIn 0.5s; }
+    .tab-pane h3 { font-size: 20px; color: var(--primary); margin-bottom: 15px; line-height: 1.7; }
+    .tab-pane p { margin-bottom: 10px; line-height: 1.7; }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ==================================== */
+    /* 9. FAQ ACCORDION                     */
+    /* ==================================== */
+    .faq-section { background: var(--bg-light); padding: 80px 0; }
+    .faq-wrapper { max-width: 800px; margin: 0 auto; }
+    .faq-title { text-align: center; font-size: 28px; color: var(--primary); margin-bottom: 40px; }
+    .faq-item { background: var(--white); border-radius: 12px; margin-bottom: 15px; border: 1px solid #edf2f7; overflow: hidden; }
+    .faq-question { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--primary); }
+    .faq-question i { transition: 0.3s; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; padding: 0 20px; transition: 0.3s; color: var(--text-muted); }
+    .faq-item.active .faq-answer { max-height: 200px; padding: 0 20px 20px; }
+
+    /* ==================================== */
+    /* 10. GALLERY                          */
+    /* ==================================== */
+    .gallery-section { background: var(--primary); padding: 80px 0; color: var(--white); overflow: hidden; }
+    .gallery-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
+    .gallery-slider { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; max-width: 1600px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+    .gallery-slider::-webkit-scrollbar { display: none; }
+    .g-card { min-width: 300px; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 10px; border: 1px solid rgba(255,255,255,0.2); }
+    .g-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 12px; }
+
+    /* ==================================== */
+    /* 11. FINAL CTA                        */
+    /* ==================================== */
+    .cta-section { background: var(--primary-dark); padding: 80px 0; text-align: center; color: var(--white); }
+    .cta-box { max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 50px 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+    .cta-box h2 { font-size: 32px; margin-bottom: 15px; }
+    .cta-box p { margin-bottom: 30px; opacity: 0.8; }
+
+    /* ==================================== */
+    /* 12. FOOTER                           */
+    /* ==================================== */
+    .footer { background: #0b1a2a; color: #cbd5e1; padding: 60px 0 20px; font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .f-col h4 { color: var(--white); font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+    .f-logo { margin-bottom: 20px; }
+    .f-links { list-style: none; }
+    .f-links li { margin-bottom: 10px; }
+    .f-links a { transition: 0.2s; }
+    .f-links a:hover { color: var(--secondary); padding-left: 5px; }
+    .f-contact p { margin-bottom: 15px; display: flex; gap: 10px; }
+    .f-contact i { color: var(--secondary); margin-top: 3px; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 13px; opacity: 0.7; }
+
+    @media(max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    /* GLOBAL RESPONSIVE TWEAKS */
+    @media (max-width: 768px) {
+      .section-padding, .testi-section, .tabs-section, .gallery-section, .faq-section, .cta-section { padding: 50px 0; }
+      .brand-section { padding: 40px 0; }
+      .about-wrapper { margin-top: 0; }
+      .booking-left, .booking-form-box { padding: 30px 20px; }
+      .gallery-title, .testi-title h2, .cta-box h2, .tabs-header h2, .faq-title { font-size: 24px; margin-bottom: 25px; }
+      .hero-glass h1 { font-size: 26px; }
+      .footer { padding: 40px 0 20px; }
+      .trust-track { gap: 30px; padding-right: 30px; animation-duration: 15s; }
+      .g-card { min-width: 250px; }
+      .tab-btn { padding: 10px 18px; font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .b-services { flex-wrap: wrap; }
+      .b-service-card { flex: 1 1 45%; }
+      .brand-icons { gap: 15px; }
+      .brand-icons img { max-width: 80px !important; height: 40px !important; }
+      .faq-question { font-size: 14px; padding: 15px; }
+      .about-card h2, .merk-card h2 { font-size: 20px; }
+      .about-features { grid-template-columns: 1fr; }
+      .gallery-slider { gap: 15px; }
+    }
+
+    /* WhatsApp Floating Widget */
+    .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: 0.3s; }
+    .wa-float:hover { transform: scale(1.1); color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        SAHARA SLIDING DOOR MOBIL
+      </a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#layanan">Services</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-cta">
+        <a href="#booking" class="btn btn-white"><i class="fa fa-calendar-check"></i> Booking Service</a>
+      </div>
+      <button class="mobile-menu-btn"><i class="fa fa-bars"></i></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img src="./images/bengkel-service-sliding-door-alphard.webp" alt="Service Sliding Door" class="hero-bg" onerror="this.src='https://via.placeholder.com/1920x1080/111111/444444?text=Hero'">
+    <div class="hero-content">
+      <div class="hero-glass">
+        <h1>Bengkel Service Sliding Door Mobil Profesional</h1>
+        <p>Menerima panggilan Home Service ke lokasi Anda. Berpengalaman memperbaiki Sliding Door Macet, Sunroof Bocor, dan Power Backdoor Bermasalah.</p>
+        <div class="hero-buttons">
+          <a href="#booking" class="btn btn-primary">Booking Service</a>
+          <a href="https://wa.me/6287738811140" class="btn btn-green"><i class="fab fa-whatsapp"></i> WhatsApp Admin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-track">
+      <!-- Set 1 -->
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Spesialis Sliding Door</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Service Bergaransi</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Teknisi Berpengalaman</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Layanan Se-Indonesia</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Cepat & Presisi</div>
+      <!-- Set 2 -->
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Spesialis Sliding Door</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Service Bergaransi</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Teknisi Berpengalaman</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Layanan Se-Indonesia</div>
+      <div class="badge-item"><i class="fa fa-check-circle"></i> Cepat & Presisi</div>
+    </div>
+  </div>
+
+  <!-- ABOUT & MOBIL -->
+  <section class="section-padding" id="about">
+    <div class="container about-wrapper">
+      
+      <!-- Kiri -->
+      <div class="about-card">
+        <h2>Solusi Terpercaya Service Sliding Door & Sunroof Mobil</h2>
+        <p>Kami melayani jasa perbaikan mobil, jasa perbaikan sliding door berbagai merk mobil, pergantian part, serta servis power window dan power backdoor bergaransi. Dengan peralatan modern dan teknisi handal, kami memberi jaminan service terbaik.</p>
+        
+        <div class="about-features">
+          <div class="feat"><i class="fa fa-user-tie"></i> Teknisi Ahli</div>
+          <div class="feat"><i class="fa fa-tags"></i> Harga Terjangkau</div>
+          <div class="feat"><i class="fa fa-bolt"></i> Proses Cepat</div>
+          <div class="feat"><i class="fa fa-shield-halved"></i> Bergaransi</div>
+        </div>
+        
+        <a href="#booking" class="btn btn-primary" style="width: 100%;"><i class="fa fa-calendar-plus"></i> Buat Janji Service Sekarang</a>
+      </div>
+
+      <!-- Kanan -->
+      <div class="merk-card">
+        <h2>Service Bergaransi Untuk Berbagai Merk</h2>
+        <div class="merk-grid">
+          <a href="#" class="merk-item">
+            <img src="./images/Service-Sliding-Door-Alphard-2.webp" alt="Toyota Alphard" onerror="this.src='https://via.placeholder.com/150x100?text=Alphard'">
+            <span>Toyota Alphard</span>
+          </a>
+          <a href="#" class="merk-item">
+            <img src="./images/Service-Sliding-Door-Toyota-Vellfire-e1752438332402.png" alt="Toyota Vellfire" onerror="this.src='https://via.placeholder.com/150x100?text=Vellfire'">
+            <span>Toyota Vellfire</span>
+          </a>
+          <a href="#" class="merk-item">
+            <img src="./images/Service-Sliding-Door-Toyota-Voxy-1.webp" alt="Toyota Voxy" onerror="this.src='https://via.placeholder.com/150x100?text=Voxy'">
+            <span>Toyota Voxy</span>
+          </a>
+          <a href="#" class="merk-item">
+            <img src="./images/nissan-serena.webp" alt="Nissan Serena" onerror="this.src='https://via.placeholder.com/150x100?text=Serena'">
+            <span>Nissan Serena</span>
+          </a>
+          <a href="#" class="merk-item">
+            <img src="./images/honda-freed.webp" alt="Honda Freed" onerror="this.src='https://via.placeholder.com/150x100?text=Freed'">
+            <span>Honda Freed</span>
+          </a>
+          <a href="#" class="merk-item">
+            <img src="./images/Nissan-Elgrand.webp" alt="Nissan Elgrand" onerror="this.src='https://via.placeholder.com/150x100?text=Elgrand'">
+            <span>Nissan Elgrand</span>
+          </a>
+        </div>
+        <div class="counters">
+          <div class="counter-box">
+            <div class="counter-val" data-target="75421">0</div>
+            <div class="counter-label">Service Selesai</div>
+          </div>
+          <div class="counter-box">
+            <div class="counter-val" data-target="5800">0</div>
+            <div class="counter-label">Pelanggan Puas</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <div class="container" id="booking">
+    <div class="booking-section">
+      <div class="booking-wrap">
+        
+        <div class="booking-left">
+          <h2>Buat Janji Service Sliding Door, Sunroof & Backdoor Mobil</h2>
+          <p>Tersedia layanan Panggilan (Home Service) ke rumah atau kantor Anda. Cepat, Praktis, dan Tanpa Antri!</p>
+          <div class="b-services">
+            <div class="b-service-card">
+              <img src="./images/Bengkel-Spesialis-Pintu-Geser-Mobil-Terdekat-Terpercaya.webp" alt="Sliding Door" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=SLIDING+DOOR'">
+              <span>Sliding Door</span>
+            </div>
+            <div class="b-service-card">
+              <img src="./images/Service-Sunroof-Mobil-Jakarta.webp" alt="Sunroof" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=SUNROOF'">
+              <span>Sunroof</span>
+            </div>
+            <div class="b-service-card">
+              <img src="./images/service-power-backdoor-toyota-1.jpeg.webp" alt="Back Door" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=BACK+DOOR'">
+              <span>Back Door</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-form-box">
+          <h3>Form Booking Service</h3>
+          <p style="font-size: 13px; color: #666; margin-bottom: 20px;">Silakan isikan data service Anda (Langsung menuju ke WA admin kami)</p>
+          <form id="waForm">
+            <div class="form-group">
+              <input type="text" id="waName" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="waPhone" placeholder="Nomor WhatsApp" required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="waCar" placeholder="Merk & Tipe Mobil (Cth: Alphard 2018)" required>
+            </div>
+            <div class="form-group">
+              <select id="waType" required>
+                <option value="" disabled selected>Pilih Jenis Service</option>
+                <option value="Sliding Door">Service Sliding Door</option>
+                <option value="Sunroof">Service Sunroof</option>
+                <option value="Power Backdoor">Service Power Backdoor</option>
+                <option value="Lainnya">Lainnya / Konsultasi</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea id="waMessage" rows="3" placeholder="Deskripsikan Keluhan Anda (Opsional)"></textarea>
+            </div>
+            <button type="submit" class="btn btn-green" style="width: 100%; border-radius: 8px;"><i class="fab fa-whatsapp"></i> Kirim ke WhatsApp</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND LOGOS BANNERS -->
+  <section class="brand-section">
+    <div class="container">
+      <h2>Menerima Service untuk Berbagai Merek</h2>
+      <p>Mulai dari Kendaraan Jepang (Toyota, Honda, Nissan, Mitsubishi, Daihatsu, Isuzu, Wuling) hingga Kendaraan Mewah (BMW, Mercedes-Benz, Hyundai).</p>
+      <div class="brand-icons">
+        <img src="./images/logo-toyota.webp" alt="Toyota">
+        <img src="./images/logo-honda-2-r5pemak3hmjb14gpu1x8l2x25l8jbflz8t940mc0rs.png" alt="Honda">
+        <img src="./images/logo-nissan.webp" alt="Nissan">
+        <img src="./images/logo-motsubishi.webp" alt="Mitsubishi">
+        <img src="./images/Logo-Daihatsu.webp" alt="Daihatsu">
+        <img src="./images/logo-isuzu.webp" alt="Isuzu">
+        <img src="./images/logo-wuling.webp" alt="Wuling">
+        <img src="./images/log-bmw.webp" alt="BMW">
+        <img src="./images/logo-mercy.webp" alt="Mercedes Benz">
+        <img src="./images/Logo-Hyundai.webp" alt="Hyundai">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="testi-title">
+        <h2>Testimoni Pelanggan</h2>
+        <p>Lebih dari 500+ Pelanggan Telah Puas menggunakan layanan kami.</p>
+      </div>
+      <div class="testi-wrap">
+        <div class="google-badge">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+          <h4>EXCELLENT</h4>
+          <p>
+            <i class="fa fa-star" style="color: #fbbc05;"></i>
+            <i class="fa fa-star" style="color: #fbbc05;"></i>
+            <i class="fa fa-star" style="color: #fbbc05;"></i>
+            <i class="fa fa-star" style="color: #fbbc05;"></i>
+            <i class="fa fa-star" style="color: #fbbc05;"></i>
+          </p>
+          <p style="font-size:12px;color:#999;">Berdasarkan 100+ Ulasan</p>
+        </div>
+        <div class="testi-cards">
+          <!-- Card 1 -->
+          <div class="t-card">
+            <div class="t-head">
+              <div class="avatar">R</div>
+              <div>
+                <h5>Rio Axl</h5>
+                <span>3 hari yang lalu</span>
+              </div>
+            </div>
+            <div class="t-stars">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
+            <div class="t-text">
+              "Sangat memuaskan pelayanannya. Pintu geser voxy saya macet langsung tertangani dengan cepat. Maju terus untuk Feeling Sliding Door 🙏🏼"
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="t-card">
+            <div class="t-head">
+              <div class="avatar" style="background:#0f9d58;">M</div>
+              <div>
+                <h5>M Fadilah</h5>
+                <span>1 minggu yang lalu</span>
+              </div>
+            </div>
+            <div class="t-stars">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
+            <div class="t-text">
+              "Pengerjaan sangat rapi dan teliti. Sukses selalu buat bosku. Hasil service sunroof berjalan normal jaya. Terimakasih teknisi mas!"
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="t-card">
+            <div class="t-head">
+              <div class="avatar" style="background:#fbbc05;">A</div>
+              <div>
+                <h5>Ahmad Faisal</h5>
+                <span>1 bulan yang lalu</span>
+              </div>
+            </div>
+            <div class="t-stars">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
+            <div class="t-text">
+              "Karet sunroof yang bocor sudah aman 100%. Awalnya bingung cari bengkel terpercaya, untung ketemu Sahara. Terbaik!"
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="t-card">
+            <div class="t-head">
+              <div class="avatar" style="background:#ea4335;">D</div>
+              <div>
+                <h5>Dian Kurnia</h5>
+                <span>3 bulan yang lalu</span>
+              </div>
+            </div>
+            <div class="t-stars">
+              <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </div>
+            <div class="t-text">
+              "Layanan Home Service-nya luar biasa ngebantu banget! Mekanik bawa sparepart lengkap ke rumah, selesai tidak sampai 2 jam."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS SERVICE -->
+  <section class="tabs-section" id="layanan">
+    <div class="container">
+      <div class="tabs-header">
+        <h2>Service Sliding Door Mobil & Sunroof Bergaransi</h2>
+        <p style="color:var(--text-muted);">Informasi detail mengenai layanan bengkel kami.</p>
+      </div>
+      
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab1">Tentang</button>
+        <button class="tab-btn" data-tab="tab2">Layanan</button>
+        <button class="tab-btn" data-tab="tab3">Area</button>
+        <button class="tab-btn" data-tab="tab4">Home Service</button>
+      </div>
+      
+      <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+          <h3>Spesialis Service Pintu Otomatis Mobil Profesional</h3>
+          <p>Sahara Sliding Door Mobil adalah solusi andalan untuk perawatan dan perbaikan pintu geser otomatis pada mobil Anda. Kami berdiri dengan dedikasi penuh menangani kendaraan-kendaraan yang membutuhkan akurasi tinggi menggunakan part orisinil (atau opsional terbaik lainnya).</p>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <h3>Cakupan Layanan Kami</h3>
+          <p><strong>- Service Sliding Door:</strong> Sling putus, motor lemah, pintu anjlok, sensor terjepit tidak bekerja, modifikasi tombol pintual.<br>
+             <strong>- Service Sunroof:</strong> Karet bocor, rel macet, dinamo sunroof lemah, switch bermasalah.<br>
+             <strong>- Service Power Backdoor:</strong> Hidrolik pintu bagasi elektrik rusak, sensor tidak menutup otomatis.</p>
+        </div>
+        <div class="tab-pane" id="tab3">
+          <h3>Area Layanan Tersedia</h3>
+          <p>Tentu bengkel pusat kami berada di Jakarta Timur. Namun, bagi Anda yang berada di Jabodetabek (Jakarta, Bogor, Depok, Tangerang, Bekasi), kami menyediakan layanan jemput bola. Untuk jadwal layanan Luar Kota mohon hubungi admin kami.</p>
+        </div>
+        <div class="tab-pane" id="tab4">
+          <h3>Memanggil Home Service Kapan Saja</h3>
+          <p>Kami menyadari kesibukan Anda. Kini Anda tidak perlu jauh-jauh datang ke bengkel. Hubungi WhatsApp kami, kirimkan foto/video kerusakan ringan dan lokasi, teknisi kami akan merapat ke tempat Anda membawa suku cadang yang tepat untuk kendaraan Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container faq-wrapper">
+      <h2 class="faq-title">FAQ Service Rutin</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          Berapa estimasi waktu perbaikan Sliding Door? <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <br>Waktu pengerjaan bergantung pada jenis kerusakan, rata-rata bervariasi antara 1 hingga 3 jam saja jika permasalahan ringan sampai sedang.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Apakah spare part yang digunakan bergaransi? <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <br>Betul, kami berani memberikan garansi service dan part selama periode tertentu tergantung kebijakan yang telah disepakati karena kami hanya menggunakan suku cadang berkualitas tinggi berkualitas original / grade A.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          Bagaimana cara memanggil Home Service? <i class="fa fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <br>Cukup menekan tombol WhatsApp yang tersedia, sebutkan Merk dan Tipe kendaraan Anda (Contoh: Alphard G 2017), lalu keluhan Anda. Tim akan membuat estimasi biaya dan teknisi akan dikirim ke rumah Anda jika disetujui.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section" id="galeri">
+    <div class="container">
+      <h2 class="gallery-title">Galeri Service Sahara</h2>
+    </div>
+    <div class="gallery-slider">
+        <div class="g-card"><img src="./images/galeri%20(1).jpeg" alt="Galeri 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+1';"></div>
+        <div class="g-card"><img src="./images/galeri%20(2).jpeg" alt="Galeri 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+2';"></div>
+        <div class="g-card"><img src="./images/galeri%20(3).jpeg" alt="Galeri 3" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+3';"></div>
+        <div class="g-card"><img src="./images/galeri%20(4).jpeg" alt="Galeri 4" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+4';"></div>
+        <div class="g-card"><img src="./images/galeri%20(5).jpeg" alt="Galeri 5" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+5';"></div>
+        <div class="g-card"><img src="./images/galeri%20(6).jpeg" alt="Galeri 6" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+6';"></div>
+        <div class="g-card"><img src="./images/galeri%20(7).jpeg" alt="Galeri 7" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+7';"></div>
+        <div class="g-card"><img src="./images/galeri%20(8).jpeg" alt="Galeri 8" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+8';"></div>
+        <div class="g-card"><img src="./images/galeri%20(9).jpeg" alt="Galeri 9" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+9';"></div>
+        <div class="g-card"><img src="./images/galeri%20(10).jpeg" alt="Galeri 10" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+10';"></div>
+        <div class="g-card"><img src="./images/galeri%20(11).jpeg" alt="Galeri 11" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+11';"></div>
+        <div class="g-card"><img src="./images/galeri%20(12).jpeg" alt="Galeri 12" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+12';"></div>
+        <div class="g-card"><img src="./images/galeri%20(13).jpeg" alt="Galeri 13" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+13';"></div>
+        <div class="g-card"><img src="./images/galeri%20(14).jpeg" alt="Galeri 14" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+14';"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Butuh Service Sliding Door Mobil Sekarang?</h2>
+        <p>Konsultasi gratis & booking service langsung dengan Teknisi Berpengalaman. Home Service tersedia.</p>
+        <a href="https://wa.me/6287738811140" class="btn btn-green"><i class="fab fa-whatsapp"></i> Hubungi via WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="f-col">
+          <h4 style="display:flex; align-items:center; gap:10px;">
+            Sahara Sliding Door Mobil
+          </h4>
+          <p style="opacity:0.8; line-height:1.7; margin-bottom: 20px;">Melayani jasa perbaikan mobil, perbaikan sliding door berbagai merk, pergantian part, serta servis power window dan power backdoor.</p>
+        </div>
+        
+        
+        <div class="f-col">
+          <h4>Layanan Bengkel</h4>
+          <ul class="f-links">
+            <li><a href="#">Service Sliding Door</a></li>
+            <li><a href="#">Perbaikan Motor Dynamo</a></li>
+            <li><a href="#">Service Sunroof & Moonroof</a></li>
+            <li><a href="#">Pemasangan Power Backdoor</a></li>
+          </ul>
+        </div>
+        
+        <div class="f-col">
+          <h4>Info Bengkel</h4>
+          <div class="f-contact">
+            <p><i class="fa fa-map-marker-alt"></i> <span><a href="https://goo.gl/maps/or3W5zQnJGpRsKAR9?g_st=aw" target="_blank" style="color: inherit; text-decoration: underline;">Jl Bintara V Bintara raya no 52 Bekasi Barat</a></span></p>
+            <p><i class="fa fa-clock"></i> <span>Senin - Sabtu: 09.00 - 18.00<br>Minggu: (Janji Temu)</span></p>
+            <p><i class="fab fa-whatsapp"></i> <span>0877-3881-1140</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        &copy; 2026 Sahara Sliding Door Mobil. All Rights Reserved. Term & Conditions.
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WA -->
+  <a href="https://wa.me/6287738811140" class="wa-float" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    menuBtn.addEventListener('click', () => {
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '80px';
+        nav.style.left = '0';
+        nav.style.width = '100%';
+        nav.style.background = 'var(--primary)';
+        nav.style.padding = '20px 0';
+      }
+    });
+
+    // 2. Animate Counter
+    const counters = document.querySelectorAll('.counter-val');
+    let hasAnimated = false;
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const c = +counter.innerText;
+        const increment = target / 50; 
+        
+        if (c < target) {
+          counter.innerText = Math.ceil(c + increment);
+          setTimeout(animateCounters, 20);
+        } else {
+          counter.innerText = target.toLocaleString('id-ID') + '+';
+        }
+      });
+    }
+
+    // Scroll triggering counter
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400 && !hasAnimated) { // Adjust value as needed
+        hasAnimated = true;
+        animateCounters();
+      }
+    });
+
+    // 3. Tabs Logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+        // Add active
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-tab');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // 4. FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const q = item.querySelector('.faq-question');
+      q.addEventListener('click', () => {
+        // Toggle current item
+        item.classList.toggle('active');
+        // Close others
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // 5. Booking Form to WA Logic
+    const waForm = document.getElementById('waForm');
+    waForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('waName').value;
+      const noHp = document.getElementById('waPhone').value;
+      const merk = document.getElementById('waCar').value;
+      const jnsSvc = document.getElementById('waType').value;
+      const keluhan = document.getElementById('waMessage').value;
+
+      const adminWa = "6287738811140";
+      const text = `Halo Admin Sahara,\nSaya ingin melakukan reservasi:\n\n*Nama:* ${nama}\n*No HP:* ${noHp}\n*Merk Mobil:* ${merk}\n*Tipe Service:* ${jnsSvc}\n*Keluhan:* ${keluhan}\n\nMohon info estimasi biaya dan ketersediaan slot. Terima kasih!`;
+      
+      const whatsappUrl = `https://wa.me/${adminWa}?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Hide mobile menu on link click
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.style.display = 'none';
+        }
+      });
+    });
+
+    // 6. Gallery Auto Scroll
+    const gallerySlider = document.querySelector('.gallery-slider');
+    let scrollInterval;
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (gallerySlider.scrollLeft >= (gallerySlider.scrollWidth - gallerySlider.clientWidth - 1)) {
+          gallerySlider.scrollLeft = 0;
+        } else {
+          gallerySlider.scrollLeft += 1;
+        }
+      }, 25);
+    };
+    startScroll();
+
+    // Pause scroll when touched or hovered
+    gallerySlider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+    gallerySlider.addEventListener('mouseleave', startScroll);
+    gallerySlider.addEventListener('touchstart', () => clearInterval(scrollInterval));
+    gallerySlider.addEventListener('touchend', startScroll);
+
+    // 7. Testimoni Auto Scroll
+    const testiCards = document.querySelector('.testi-cards');
+    let scrollTesti;
+    const startTesti = () => {
+      scrollTesti = setInterval(() => {
+        if (testiCards.scrollLeft >= (testiCards.scrollWidth - testiCards.clientWidth - 1)) {
+          testiCards.scrollLeft = 0;
+        } else {
+          testiCards.scrollLeft += 1;
+        }
+      }, 30);
+    };
+    startTesti();
+
+    testiCards.addEventListener('mouseenter', () => clearInterval(scrollTesti));
+    testiCards.addEventListener('mouseleave', startTesti);
+    testiCards.addEventListener('touchstart', () => clearInterval(scrollTesti));
+    testiCards.addEventListener('touchend', startTesti);
+  </script>
+
+</body>
+</html>
