@@ -300,6 +300,7 @@
     .cta-box { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; background: rgba(255,255,255,0.05); padding: 50px 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
     .cta-box h2 { font-size: 32px; margin-bottom: 15px; }
     .cta-box p { margin-bottom: 30px; opacity: 0.8; }
+    .cta-btns { display: flex; gap: 15px; flex-wrap: wrap; }
     .cta-map iframe { width: 100%; border-radius: 12px; height: 350px; display: block; filter: saturate(1.1); }
 
     /* ==================================== */
@@ -332,6 +333,7 @@
       .gallery-title, .testi-title h2, .cta-box h2, .tabs-header h2, .faq-title { font-size: 24px; margin-bottom: 25px; }
       .hero-glass h1 { font-size: 26px; }
       .cta-box { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
+      .cta-btns { justify-content: center; }
       .cta-map iframe { height: 300px; }
       .footer { padding: 40px 0 20px; }
       .trust-track { gap: 30px; padding-right: 30px; animation-duration: 15s; }
@@ -741,7 +743,10 @@
         <div class="cta-content">
           <h2>Butuh Service Sliding Door Mobil Sekarang?</h2>
           <p>Dapatkan konsultasi gratis dan booking service sekarang juga dengan tim teknisi spesialis kami yang berpengalaman. Anda tidak perlu repot membawa mobil ke bengkel, karena <strong>layanan kami bisa dipanggil langsung ke rumah Anda (Home Service)</strong>. Kami siap melakukan perbaikan di tempat dengan peralatan lengkap, cepat, dan bergaransi.</p>
-          <a href="https://wa.me/6287738811140" class="btn btn-green"><i class="fab fa-whatsapp"></i> Hubungi via WhatsApp</a>
+          <div class="cta-btns">
+            <a href="https://wa.me/6287738811140" class="btn btn-green"><i class="fab fa-whatsapp"></i> Hubungi via WhatsApp</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=-6.2290103%2C106.9529566" class="btn btn-white" target="_blank"><i class="fa fa-location-dot"></i> Kunjungi Kami</a>
+          </div>
         </div>
         <div class="cta-map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d569.1395341348416!2d106.95295663527!3d-6.229010372493216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTMnNDMuOSJTIDEwNsKwNTcnMTEuMCJF!5e1!3m2!1sen!2sid!4v1776651261255!5m2!1sen!2sid&maptype=satellite" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
