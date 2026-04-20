@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://webizdev.github.io/saharaslidingdoor/sitemap.xml
+Sitemap: https://serviceslidingdoormobil.id/sitemap.xml
