@@ -9,6 +9,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-9KZ4T247TF');
+    gtag('config', 'AW-18088826444');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -913,7 +914,22 @@
       const text = `Halo Admin Sahara,\nSaya ingin melakukan reservasi:\n\n*Nama:* ${nama}\n*No HP:* ${noHp}\n*Merk Mobil:* ${merk}\n*Tipe Service:* ${jnsSvc}\n*Keluhan:* ${keluhan}\n\nMohon info estimasi biaya dan ketersediaan slot. Terima kasih!`;
       
       const whatsappUrl = `https://wa.me/${adminWa}?text=${encodeURIComponent(text)}`;
-      window.open(whatsappUrl, '_blank');
+      
+      // Track Form Submission Event
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18088826444/b55dCPq3jqAcEMystrFD',
+          'event_callback': function() {
+            window.open(whatsappUrl, '_blank');
+          }
+        });
+        gtag('event', 'submit_booking_form', {
+          'event_category': 'Contact',
+          'event_label': 'Booking Form to WA'
+        });
+      } else {
+        window.open(whatsappUrl, '_blank');
+      }
     });
 
     // Hide mobile menu on link click
@@ -963,6 +979,39 @@
     testiCards.addEventListener('mouseleave', startTesti);
     testiCards.addEventListener('touchstart', () => clearInterval(scrollTesti));
     testiCards.addEventListener('touchend', startTesti);
+
+    // 8. GOOGLE ADS & CTA TRACKING LOGIC
+    const trackConversion = (label) => {
+      if (typeof gtag === 'function') {
+        // Track as Google Ads Conversion
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18088826444/b55dCPq3jqAcEMystrFD'
+        });
+        // Track as GA4 Event
+        gtag('event', 'cta_click', {
+          'event_category': 'Engagement',
+          'event_label': label
+        });
+      }
+    };
+
+    // Attach listeners to all CTA buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header & Hero Booking
+      document.querySelectorAll('a[href="#booking"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click Booking Button'));
+      });
+
+      // WA Links (Hero, Final, Floating)
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click WhatsApp Button'));
+      });
+
+      // Maps Link
+      document.querySelectorAll('a[href*="google.com/maps"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click Maps/Location'));
+      });
+    });
   </script>
 
 </body>
