@@ -395,6 +395,19 @@
     /* WhatsApp Floating Widget */
     .wa-float { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); z-index: 100; transition: 0.3s; }
     .wa-float:hover { transform: scale(1.1); color: white; }
+
+    /* ==================================== */
+    /* 13. ARTICLES / BLOG SECTION          */
+    /* ==================================== */
+    .blog-section { padding: 80px 0; background: var(--white); }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    .blog-card { background: var(--bg-light); border-radius: 20px; overflow: hidden; border: 1px solid #edf2f7; transition: 0.3s; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .blog-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .blog-content { padding: 25px; }
+    .blog-content h3 { font-size: 20px; color: var(--primary); margin-bottom: 12px; line-height: 1.4; }
+    .blog-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .read-more { font-weight: 700; color: var(--primary); font-size: 14px; display: flex; align-items: center; gap: 5px; }
   </style>
 </head>
 <body>
@@ -420,7 +433,7 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
-    <img src="./images/bengkel-service-sliding-door-alphard.webp" alt="Jasa Service Sliding Door Mobil Jakarta - Sahara Sliding Door" class="hero-bg" onerror="this.src='https://via.placeholder.com/1920x1080/111111/444444?text=Hero'">
+    <img fetchpriority="high" src="./images/bengkel-service-sliding-door-alphard.webp" alt="Jasa Service Sliding Door Mobil Jakarta - Sahara Sliding Door" class="hero-bg" onerror="this.src='https://via.placeholder.com/1920x1080/111111/444444?text=Hero'">
     <div class="hero-content">
       <div class="hero-glass">
         <h1>Jasa Service Sliding Door Mobil Jakarta Profesional</h1>
@@ -475,27 +488,27 @@
         <h2>Service Bergaransi Untuk Berbagai Merk</h2>
         <div class="merk-grid">
           <a href="#" class="merk-item">
-            <img src="./images/Service-Sliding-Door-Alphard-2.webp" alt="Service Sliding Door Toyota Alphard Bergaransi Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Alphard'">
+            <img loading="lazy" src="./images/Service-Sliding-Door-Alphard-2.webp" alt="Service Sliding Door Toyota Alphard Bergaransi Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Alphard'">
             <span>Toyota Alphard</span>
           </a>
           <a href="#" class="merk-item">
-            <img src="./images/Service-Sliding-Door-Toyota-Vellfire-e1752438332402.png" alt="Spesialis Jasa Service Pintu Geser Toyota Vellfire Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Vellfire'">
+            <img loading="lazy" src="./images/Service-Sliding-Door-Toyota-Vellfire-e1752438332402.png" alt="Spesialis Jasa Service Pintu Geser Toyota Vellfire Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Vellfire'">
             <span>Toyota Vellfire</span>
           </a>
           <a href="#" class="merk-item">
-            <img src="./images/Service-Sliding-Door-Toyota-Voxy-1.webp" alt="Bengkel Pintu Otomatis Toyota Voxy Jakarta Bekasi" onerror="this.src='https://via.placeholder.com/150x100?text=Voxy'">
+            <img loading="lazy" src="./images/Service-Sliding-Door-Toyota-Voxy-1.webp" alt="Bengkel Pintu Otomatis Toyota Voxy Jakarta Bekasi" onerror="this.src='https://via.placeholder.com/150x100?text=Voxy'">
             <span>Toyota Voxy</span>
           </a>
           <a href="#" class="merk-item">
-            <img src="./images/nissan-serena.webp" alt="Jasa Service Sliding Door Macet Nissan Serena Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Serena'">
+            <img loading="lazy" src="./images/nissan-serena.webp" alt="Jasa Service Sliding Door Macet Nissan Serena Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Serena'">
             <span>Nissan Serena</span>
           </a>
           <a href="#" class="merk-item">
-            <img src="./images/honda-freed.webp" alt="Perbaikan Pintu Geser Honda Freed Jakarta Timur" onerror="this.src='https://via.placeholder.com/150x100?text=Freed'">
+            <img loading="lazy" src="./images/honda-freed.webp" alt="Perbaikan Pintu Geser Honda Freed Jakarta Timur" onerror="this.src='https://via.placeholder.com/150x100?text=Freed'">
             <span>Honda Freed</span>
           </a>
           <a href="#" class="merk-item">
-            <img src="./images/Nissan-Elgrand.webp" alt="Service Sliding Door Nissan Elgrand Spesialis Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Elgrand'">
+            <img loading="lazy" src="./images/Nissan-Elgrand.webp" alt="Service Sliding Door Nissan Elgrand Spesialis Jakarta" onerror="this.src='https://via.placeholder.com/150x100?text=Elgrand'">
             <span>Nissan Elgrand</span>
           </a>
         </div>
@@ -524,11 +537,11 @@
           <p>Tersedia layanan Panggilan (Home Service) ke rumah atau kantor Anda. Cepat, Praktis, dan Tanpa Antri!</p>
           <div class="b-services">
             <div class="b-service-card">
-              <img src="./images/Bengkel-Spesialis-Pintu-Geser-Mobil-Terdekat-Terpercaya.webp" alt="Jasa Service Sliding Door Mobil Jakarta" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=SLIDING+DOOR'">
+              <img loading="lazy" src="./images/Bengkel-Spesialis-Pintu-Geser-Mobil-Terdekat-Terpercaya.webp" alt="Jasa Service Sliding Door Mobil Jakarta" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=SLIDING+DOOR'">
               <span>Sliding Door</span>
             </div>
             <div class="b-service-card">
-              <img src="./images/service-power-backdoor-toyota-1.jpeg.webp" alt="Service Power Backdoor Jakarta" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=BACK+DOOR'">
+              <img loading="lazy" src="./images/service-power-backdoor-toyota-1.jpeg.webp" alt="Service Power Backdoor Jakarta" onerror="this.src='https://via.placeholder.com/150x100/1e3a8a/fff?text=BACK+DOOR'">
               <span>Back Door</span>
             </div>
           </div>
@@ -572,16 +585,16 @@
       <h2>Menerima Service untuk Berbagai Merek</h2>
       <p>Mulai dari Kendaraan Jepang (Toyota, Honda, Nissan, Mitsubishi, Daihatsu, Isuzu, Wuling) hingga Kendaraan Mewah (BMW, Mercedes-Benz, Hyundai).</p>
       <div class="brand-icons">
-        <img src="./images/logo-toyota.webp" alt="Toyota">
-        <img src="./images/logo-honda-2-r5pemak3hmjb14gpu1x8l2x25l8jbflz8t940mc0rs.png" alt="Honda">
-        <img src="./images/logo-nissan.webp" alt="Nissan">
-        <img src="./images/logo-motsubishi.webp" alt="Mitsubishi">
-        <img src="./images/Logo-Daihatsu.webp" alt="Daihatsu">
-        <img src="./images/logo-isuzu.webp" alt="Isuzu">
-        <img src="./images/logo-wuling.webp" alt="Wuling">
-        <img src="./images/log-bmw.webp" alt="BMW">
-        <img src="./images/logo-mercy.webp" alt="Mercedes Benz">
-        <img src="./images/Logo-Hyundai.webp" alt="Hyundai">
+        <img loading="lazy" src="./images/logo-toyota.webp" alt="Toyota">
+        <img loading="lazy" src="./images/logo-honda-2-r5pemak3hmjb14gpu1x8l2x25l8jbflz8t940mc0rs.png" alt="Honda">
+        <img loading="lazy" src="./images/logo-nissan.webp" alt="Nissan">
+        <img loading="lazy" src="./images/logo-motsubishi.webp" alt="Mitsubishi">
+        <img loading="lazy" src="./images/Logo-Daihatsu.webp" alt="Daihatsu">
+        <img loading="lazy" src="./images/logo-isuzu.webp" alt="Isuzu">
+        <img loading="lazy" src="./images/logo-wuling.webp" alt="Wuling">
+        <img loading="lazy" src="./images/log-bmw.webp" alt="BMW">
+        <img loading="lazy" src="./images/logo-mercy.webp" alt="Mercedes Benz">
+        <img loading="lazy" src="./images/Logo-Hyundai.webp" alt="Hyundai">
       </div>
     </div>
   </section>
@@ -595,7 +608,7 @@
       </div>
       <div class="testi-wrap">
         <div class="google-badge">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+          <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
           <h4>EXCELLENT</h4>
           <p>
             <i class="fa fa-star" style="color: #fbbc05;"></i>
@@ -739,20 +752,20 @@
       <h2 class="gallery-title">Galeri Service Sahara</h2>
     </div>
     <div class="gallery-slider">
-        <div class="g-card"><img src="./images/galeri%20(1).jpeg" alt="Proses Perbaikan Pintu Geser Alphard Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+1';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(1).jpeg" alt="Proses Perbaikan Pintu Geser Alphard Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+1';"></div>
 
-        <div class="g-card"><img src="./images/galeri%20(3).jpeg" alt="Teknisi Spesialis Sliding Door Mobil Berpengalaman" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+3';"></div>
-        <div class="g-card"><img src="./images/galeri%20(4).jpeg" alt="Bengkel Pintu Geser Mobil Terdekat Bekasi Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+4';"></div>
-        <div class="g-card"><img src="./images/galeri%20(5).jpeg" alt="Service Power Backdoor Toyota Vellfire Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+5';"></div>
-        <div class="g-card"><img src="./images/galeri%20(6).jpeg" alt="Perbaikan Motor Sliding Door Freed Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+6';"></div>
-        <div class="g-card"><img src="./images/galeri%20(7).jpeg" alt="Service Sliding Door Voxy Jakarta Timur Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+7';"></div>
-        <div class="g-card"><img src="./images/galeri%20(8).jpeg" alt="Suku Cadang Asli Pintu Geser Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+8';"></div>
-        <div class="g-card"><img src="./images/galeri%20(9).jpeg" alt="Layanan Home Service Bengkel Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+9';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(3).jpeg" alt="Teknisi Spesialis Sliding Door Mobil Berpengalaman" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+3';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(4).jpeg" alt="Bengkel Pintu Geser Mobil Terdekat Bekasi Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+4';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(5).jpeg" alt="Service Power Backdoor Toyota Vellfire Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+5';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(6).jpeg" alt="Perbaikan Motor Sliding Door Freed Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+6';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(7).jpeg" alt="Service Sliding Door Voxy Jakarta Timur Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+7';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(8).jpeg" alt="Suku Cadang Asli Pintu Geser Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+8';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(9).jpeg" alt="Layanan Home Service Bengkel Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+9';"></div>
 
-        <div class="g-card"><img src="./images/galeri%20(11).jpeg" alt="Perbaikan Sling Pintu Geser Putus Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+11';"></div>
-        <div class="g-card"><img src="./images/galeri%20(12).jpeg" alt="Bengkel Spesialis Pintu Geser Bergaransi Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+12';"></div>
-        <div class="g-card"><img src="./images/galeri%20(13).jpeg" alt="Testimoni Service Pintu Geser Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+13';"></div>
-        <div class="g-card"><img src="./images/galeri%20(14).jpeg" alt="Sahara Sliding Door Mobil Profesional" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+14';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(11).jpeg" alt="Perbaikan Sling Pintu Geser Putus Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+11';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(12).jpeg" alt="Bengkel Spesialis Pintu Geser Bergaransi Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+12';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(13).jpeg" alt="Testimoni Service Pintu Geser Mobil Sahara" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+13';"></div>
+        <div class="g-card"><img loading="lazy" src="./images/galeri%20(14).jpeg" alt="Sahara Sliding Door Mobil Profesional" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/111111/444444?text=Galeri+14';"></div>
     </div>
   </section>
 
@@ -771,6 +784,48 @@
         <div class="cta-map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d569.1395341348416!2d106.95295663527!3d-6.229010372493216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTMnNDMuOSJTIDEwNsKwNTcnMTEuMCJF!5e1!3m2!1sen!2sid!4v1776651261255!5m2!1sen!2sid&maptype=satellite" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES SECTION -->
+  <section class="blog-section" id="artikel">
+    <div class="container">
+      <div class="text-center">
+        <h2 style="font-size: 32px; color: var(--primary);">Edukasi & Tips Seputar Pintu Geser</h2>
+        <p style="color: var(--text-muted);">Informasi terbaru mengenai perawatan dan solusi pintu otomatis mobil Anda.</p>
+      </div>
+      
+      <div class="blog-grid">
+        <!-- Article 1 -->
+        <article class="blog-card">
+          <img loading="lazy" src="./images/Tanda-Tanda-Sliding-Door-Mobil-Harus-Segera-Diservice.webp" alt="Penyebab Pintu Geser Alphard Macet" class="blog-img">
+          <div class="blog-content">
+            <h3>Penyebab Utama Pintu Geser Alphard Macet & Cara Mengatasinya</h3>
+            <p>Pintu geser macet seringkali disebabkan oleh kotoran di rel atau motor yang mulai lemah. Pelajari langkah awal penanganannya di sini...</p>
+            <a href="https://wa.me/6287738811140?text=Halo%20Sahara,%20saya%20ingin%20konsultasi%20mengenai%20pintu%20geser%20macet" class="read-more">Konsultasi Gratis <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card">
+          <img loading="lazy" src="./images/Bengkel-Service-Sliding-Door-Hyundai-H1.png.webp" alt="Service Power Backdoor Jakarta" class="blog-img">
+          <div class="blog-content">
+            <h3>Layanan Home Service: Solusi Praktis Perbaikan Mobil di Jakarta</h3>
+            <p>Kenapa harus repot ke bengkel? Layanan panggilan ke rumah (Home Service) kini menjadi pilihan utama pemilik mobil mewah di Jabodetabek.</p>
+            <a href="https://wa.me/6287738811140?text=Halo%20Sahara,%20saya%20ingin%20tanya%20mengenai%20layanan%20home%20service" class="read-more">Hubungi Kami <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card">
+          <img loading="lazy" src="./images/service-power-back-door-mobil-4.webp" alt="Perawatan Power Backdoor" class="blog-img">
+          <div class="blog-content">
+            <h3>Tips Merawat Power Backdoor Agar Awet dan Tidak Mudah Rusak</h3>
+            <p>Hindari memaksa menutup pintu bagasi elektrik secara manual. Simak tips perawatan harian agar sistem elektrikal tetap prima.</p>
+            <a href="https://wa.me/6287738811140?text=Halo%20Sahara,%20saya%20ingin%20tanya%20mengenai%20perawatan%20backdoor" class="read-more">Konsultasi Gratis <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
