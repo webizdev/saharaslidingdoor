@@ -31,6 +31,9 @@
     header { background: var(--primary); padding: 15px 0; color: white; position: sticky; top: 0; z-index: 100; }
     .header-content { display: flex; justify-content: space-between; align-items: center; }
     .logo { font-weight: 700; font-size: 20px; color: white; text-decoration: none; }
+    .nav-menu { display: flex; gap: 20px; align-items: center; }
+    .nav-menu a { color: white; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .btn-chat { background: var(--secondary); padding: 8px 15px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
     
     /* Breadcrumbs */
     .breadcrumbs { padding: 20px 0; font-size: 14px; color: var(--text-muted); }
@@ -88,7 +91,12 @@
   <header>
     <div class="container header-content">
       <a href="../index.html" class="logo">Sahara Sliding Door</a>
-      <a href="https://wa.me/6287738811140" style="color:white; font-size: 14px;"><i class="fab fa-whatsapp"></i> Chat Admin</a>
+      <nav class="nav-menu">
+        <a href="../index.html#home">Beranda</a>
+        <a href="../index.html#about">Tentang</a>
+        <a href="../index.html#artikel">Edukasi</a>
+        <a href="https://wa.me/6287738811140" class="btn-chat"><i class="fab fa-whatsapp"></i> Chat Admin</a>
+      </nav>
     </div>
   </header>
 
