@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head prefix="og: http://ogp.me/ns#">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18088826444"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18088826444');
+  </script>
   <!-- Performance Optimization: Preconnect to CDNs -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +38,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jasa Service Sliding Door Mobil Jakarta - Sahara Sliding Door</title>
-  <meta name="description" content="Bengkel spesialis service sliding door mobil and power backdoor bergaransi di Jakarta (Selatan, Timur, Barat, Utara, Pusat) & Bekasi. Melayani home service ke lokasi Anda.">
+  <meta name="description" content="Bengkel spesialis service sliding door mobil dan power backdoor bergaransi di Jakarta (Selatan, Timur, Barat, Utara, Pusat) & Bekasi. Melayani home service ke lokasi Anda.">
   <meta name="keywords" content="jasa service sliding door mobil jakarta, bengkel pintu geser mobil jakarta, perbaikan power backdoor jakarta, sahara sliding door, home service mobil jakarta, toyota alphard, honda freed, nissan serena, voxy, vellfire">
   <meta name="author" content="Sahara Sliding Door">
   <meta name="robots" content="index, follow">
@@ -679,7 +688,7 @@
               <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
             </div>
             <div class="t-text">
-              "Pengerjaan sangat raid dan teliti. Sukses selalu buat bosku. Hasil service berjalan normal jaya. Terimakasih teknisi mas!"
+              "Pengerjaan sangat rapi dan teliti. Sukses selalu buat bosku. Hasil service berjalan normal jaya. Terimakasih teknisi mas!"
             </div>
           </div>
 
@@ -896,22 +905,24 @@
           <h4>Layanan Utama</h4>
           <ul class="f-links">
             <li><a href="#booking">Service Sliding Door</a></li>
-            <li><a href="#booking">Service Power Backdoor</a></li>
-            <li><a href="#booking">Penggantian Sparepart</a></li>
+            <li><a href="#booking">Power Backdoor</a></li>
             <li><a href="#booking">Home Service Jakarta</a></li>
+            <li><a href="#booking">Home Service Bekasi</a></li>
           </ul>
         </div>
-
-        <div class="f-col f-contact">
-          <h4>Hubungi Kami</h4>
-          <p><i class="fa fa-location-dot"></i> Jl Bintara V Bintara raya no 52, Bekasi Barat, Jawa Barat 17134</p>
-          <p><i class="fa fa-phone"></i> 0877-3881-1140</p>
-          <p><i class="fa fa-envelope"></i> info@serviceslidingdoormobil.id</p>
+        
+        <div class="f-col">
+          <h4>Info Bengkel</h4>
+          <div class="f-contact">
+            <p><i class="fa fa-map-marker-alt"></i> <span><a href="https://maps.app.goo.gl/AKQkdCUaLUhWJ5sc6" target="_blank" style="color: inherit; text-decoration: underline;">Jl Bintara V Bintara raya no 52 Bekasi Barat</a></span></p>
+            <p><i class="fa fa-clock"></i> <span>Senin - Sabtu: 09.00 - 18.00<br>Minggu: (Janji Temu)</span></p>
+            <p><i class="fab fa-whatsapp"></i> <span>0877-3881-1140</span></p>
+          </div>
         </div>
       </div>
       
       <div class="footer-bottom">
-        &copy; 2026 Sahara Sliding Door Mobil - Jasa Service Pintu Geser Mobil Jakarta Profesional & Bergaransi.
+        &copy; 2026 Sahara Sliding Door Mobil. All Rights Reserved. Term & Conditions.
       </div>
     </div>
   </footer>
@@ -921,79 +932,196 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- SCRIPTS -->
+
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    // Tab Functionality
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabPanes.forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById(btn.dataset.tab).classList.add('active');
-      });
+    // 1. Mobile Menu Toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.nav');
+    menuBtn.addEventListener('click', () => {
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '80px';
+        nav.style.left = '0';
+        nav.style.width = '100%';
+        nav.style.background = 'var(--primary)';
+        nav.style.padding = '20px 0';
+      }
     });
 
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-      item.querySelector('.faq-question').addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-
-    // Counter Animation
+    // 2. Animate Counter
     const counters = document.querySelectorAll('.counter-val');
+    let hasAnimated = false;
     const animateCounters = () => {
       counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / 100;
-        if (count < target) {
-          counter.innerText = Math.ceil(count + inc);
+        const c = +counter.innerText;
+        const increment = target / 50; 
+        
+        if (c < target) {
+          counter.innerText = Math.ceil(c + increment);
           setTimeout(animateCounters, 20);
         } else {
-          counter.innerText = target.toLocaleString();
+          counter.innerText = target.toLocaleString('id-ID') + '+';
         }
       });
-    };
-    
-    // Trigger Counter when in view
-    const observer = new IntersectionObserver((entries) => {
-      if(entries[0].isIntersecting) animateCounters();
-    }, { threshold: 0.5 });
-    
-    const merkCard = document.querySelector('.merk-card');
-    if(merkCard) observer.observe(merkCard);
+    }
 
-    // Form Submit to WA
-    document.getElementById('waForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('waName').value;
-      const phone = document.getElementById('waPhone').value;
-      const car = document.getElementById('waCar').value;
-      const type = document.getElementById('waType').value;
-      const msg = document.getElementById('waMessage').value;
-      
-      const text = `Halo Sahara Sliding Door,\n\nSaya ingin booking service:\nNama: ${name}\nWA: ${phone}\nMobil: ${car}\nLayanan: ${type}\nKeluhan: ${msg}`;
-      const url = `https://wa.me/6287738811140?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
+    // Scroll triggering counter
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400 && !hasAnimated) { // Adjust value as needed
+        hasAnimated = true;
+        animateCounters();
+      }
     });
 
-    // Mobile Menu Toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.nav');
-    mobileBtn.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.position = 'absolute';
-      nav.style.top = '80px';
-      nav.style.left = '0';
-      nav.style.width = '100%';
-      nav.style.background = '#2b496b';
-      nav.style.padding = '20px';
+    // 3. Tabs Logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanes.forEach(p => p.classList.remove('active'));
+        // Add active
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-tab');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+
+    // 4. FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const q = item.querySelector('.faq-question');
+      q.addEventListener('click', () => {
+        // Toggle current item
+        item.classList.toggle('active');
+        // Close others
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // 5. Booking Form to WA Logic
+    const waForm = document.getElementById('waForm');
+    waForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nama = document.getElementById('waName').value;
+      const noHp = document.getElementById('waPhone').value;
+      const merk = document.getElementById('waCar').value;
+      const jnsSvc = document.getElementById('waType').value;
+      const keluhan = document.getElementById('waMessage').value;
+
+      const adminWa = "6287738811140";
+      const text = `Halo Admin Sahara,\nSaya ingin melakukan reservasi:\n\n*Nama:* ${nama}\n*No HP:* ${noHp}\n*Merk Mobil:* ${merk}\n*Tipe Service:* ${jnsSvc}\n*Keluhan:* ${keluhan}\n\nMohon info estimasi biaya dan ketersediaan slot. Terima kasih!`;
+      
+      const whatsappUrl = `https://wa.me/${adminWa}?text=${encodeURIComponent(text)}`;
+      
+      // Track Form Submission Event
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18088826444/b55dCPq3jqAcEMystrFD',
+          'event_callback': function() {
+            window.open(whatsappUrl, '_blank');
+          }
+        });
+        gtag('event', 'submit_booking_form', {
+          'event_category': 'Contact',
+          'event_label': 'Booking Form to WA'
+        });
+      } else {
+        window.open(whatsappUrl, '_blank');
+      }
+    });
+
+    // Hide mobile menu on link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 900) {
+          nav.style.display = 'none';
+        }
+      });
+    });
+
+    // 6. Gallery Auto Scroll
+    const gallerySlider = document.querySelector('.gallery-slider');
+    let scrollInterval;
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (gallerySlider.scrollLeft >= (gallerySlider.scrollWidth - gallerySlider.clientWidth - 1)) {
+          gallerySlider.scrollLeft = 0;
+        } else {
+          gallerySlider.scrollLeft += 1;
+        }
+      }, 25);
+    };
+    startScroll();
+
+    // Pause scroll when touched or hovered
+    gallerySlider.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+    gallerySlider.addEventListener('mouseleave', startScroll);
+    gallerySlider.addEventListener('touchstart', () => clearInterval(scrollInterval));
+    gallerySlider.addEventListener('touchend', startScroll);
+
+    // 7. Testimoni Auto Scroll
+    const testiCards = document.querySelector('.testi-cards');
+    let scrollTesti;
+    const startTesti = () => {
+      scrollTesti = setInterval(() => {
+        if (testiCards.scrollLeft >= (testiCards.scrollWidth - testiCards.clientWidth - 1)) {
+          testiCards.scrollLeft = 0;
+        } else {
+          testiCards.scrollLeft += 1;
+        }
+      }, 30);
+    };
+    startTesti();
+
+    testiCards.addEventListener('mouseenter', () => clearInterval(scrollTesti));
+    testiCards.addEventListener('mouseleave', startTesti);
+    testiCards.addEventListener('touchstart', () => clearInterval(scrollTesti));
+    testiCards.addEventListener('touchend', startTesti);
+
+    // 8. GOOGLE ADS & CTA TRACKING LOGIC
+    const trackConversion = (label) => {
+      if (typeof gtag === 'function') {
+        // Track as Google Ads Conversion
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18088826444/b55dCPq3jqAcEMystrFD'
+        });
+        // Track as GA4 Event
+        gtag('event', 'cta_click', {
+          'event_category': 'Engagement',
+          'event_label': label
+        });
+      }
+    };
+
+    // Attach listeners to all CTA buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      // Header & Hero Booking
+      document.querySelectorAll('a[href="#booking"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click Booking Button'));
+      });
+
+      // WA Links (Hero, Final, Floating)
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click WhatsApp Button'));
+      });
+
+      // Maps Link
+      document.querySelectorAll('a[href*="google.com/maps"]').forEach(el => {
+        el.addEventListener('click', () => trackConversion('Click Maps/Location'));
+      });
     });
   </script>
 
